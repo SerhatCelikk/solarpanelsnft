@@ -16,12 +16,38 @@ function ConnectWallet() {
     const signer = provider.getSigner();
     signer.getAddress().then((address) => setAddress(address));
   }
-  
 
   return (
-    <div  style={{background:"#FFCA2C",padding: "25px 0",
-        textAlign: "center",marginTop:"-20px",marginBottom:"-25px"}}>{account ? <p className="btn btn-primary btn-lg active" style={{marginTop:"10px",fontSize:"20px",marginLeft:"750px"}}>Connected with: {address}</p>: <button className="btn btn-primary btn-lg active"  style={{marginTop:"10px",marginBottom:"10px",fontSize:"20px",marginLeft:"750px"}} onClick={connect}>{account ? "Connected" : "Connect"} </button> }
-      
+    <div
+      style={{
+        background: "#FFCA2C",
+        padding: "25px 0",
+        textAlign: "center",
+        marginTop: "-20px",
+        marginBottom: "-25px",
+      }}
+    >
+      {account ? (
+        <p
+          className="btn btn-primary btn-lg active"
+          style={{ marginTop: "10px", fontSize: "20px", marginLeft: "750px" }}
+        >
+          Connected with: {address}
+        </p>
+      ) : (
+        <button
+          className="btn btn-primary btn-lg active"
+          style={{
+            marginTop: "10px",
+            marginBottom: "10px",
+            fontSize: "20px",
+            marginLeft: "750px",
+          }}
+          onClick={connect}
+        >
+          {account ? "Connected" : "Connect"}{" "}
+        </button>
+      )}
     </div>
   );
 }
